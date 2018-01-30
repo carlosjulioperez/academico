@@ -1,0 +1,30 @@
+Maven
+	* Generación de proyecto web:
+	mvn archetype:generate -DgroupId=ec.cjpq.academico -DartifactId=academico -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+PostgreSQL
+	* scripts:
+
+		# sudo vim /etc/postgresql/9.6/main/pg_hba.conf 
+			#local   all             all                                     peer
+			local   all             academico md5 
+		# sudo /etc/init.d/postgresql restart
+
+		+ En el servidor:
+		#local   all             all                                     peer
+		local   all             all                                     md5
+
+		# su postgres
+		# psql
+		
+		CREATE USER academico WITH PASSWORD 'academico';
+		CREATE DATABASE academicodb OWNER academico;
+		\q
+
+		# psql -U academico academicodb < /home/carper/local/projects/academico/src/main/resources/sql/insert.sql
+		# psql -d academicodb -U academico
+
+Test
+	* JUnit:
+		mvn test -Dtest=ec.cjpq.academico.model.dao.EntityDaoTest
+	
