@@ -11,6 +11,8 @@ import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import ec.cjpq.academico.model.entity.Actividad;
+import ec.cjpq.academico.model.entity.Alumno;
+import ec.cjpq.academico.model.entity.Materia;
 
 /**
  * EntityDaoTest Unit test for simple App.
@@ -27,8 +29,22 @@ public class EntityDaoTest extends JPAHibernateTest{
     final static Logger logger = Logger.getLogger(EntityDaoTest.class);
 
     @Test
+    public void testAlumnoGetAll(){
+        for (Alumno o: new AlumnoDao().getAll() ){
+            System.out.println(o.getApellido() + " "+o.getNombre());
+        }
+    }
+
+    @Test
     public void testActividadGetAll(){
         for (Actividad o: new ActividadDao().getAll() ){
+            System.out.println(o.getDescripcion());
+        }
+    }
+
+    @Test
+    public void testMateriaGetAll(){
+        for (Materia o: new MateriaDao().getAll() ){
             System.out.println(o.getDescripcion());
         }
     }

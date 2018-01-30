@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 /**
  * Actividad Dao
  * @author carper CARLOS JULIO PEREZ QUIZHPE carlosjulioperez@gmail.com claro 099 3208265
- * 2018-ene-27
+ * 2018-ene-30
  */
 public class ActividadDao extends EntityDao{
     

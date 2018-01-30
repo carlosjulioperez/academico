@@ -12,21 +12,24 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Actividad Entity
+ * Alumno Entity
  * @author carper CARLOS JULIO PEREZ QUIZHPE carlosjulioperez@gmail.com claro 099 3208265
  * 2018-ene-30
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name="Actividad.getAll", query="SELECT o FROM Actividad o ORDER BY o.descripcion")
+    @NamedQuery(name="Alumno.getAll", query="SELECT o FROM Alumno o ORDER BY o.apellido, o.nombre")
 })
-public class Actividad{
+public class Alumno{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY) @Getter @Setter
 	private Integer id;
 
 	@Column(length=100) @Getter @Setter
-    private String descripcion;
+    private String apellido;
+
+	@Column(length=100) @Getter @Setter
+    private String nombre;
 
 }
 
