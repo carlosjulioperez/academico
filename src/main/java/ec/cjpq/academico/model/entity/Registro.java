@@ -16,29 +16,30 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * CalendarioEspol Entity
+ * Registro Entity
  * @author carper CARLOS JULIO PEREZ QUIZHPE carlosjulioperez@gmail.com claro 099 3208265
  * 2018-ene-30
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name="CalendarioEspol.getAll", query="SELECT o FROM CalendarioEspol o ORDER BY o.anio, o.semestre")
+    @NamedQuery(name="Registro.getAll", query="SELECT o FROM Registro o ORDER BY o.paralelo.descripcion")
 })
-public class CalendarioEspol{
+public class Registro{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY) @Getter @Setter
 	private Integer id;
 
-	@Column(length=4, columnDefinition="Integer default '2018'" ) @Getter @Setter
-    private Integer anio;
-
-	@Column(length=1) @Getter @Setter
-    private Integer semestre;
+    @ManyToOne(fetch=FetchType.LAZY, optional=false) @Getter @Setter
+    private Alumno alumno;
+    
+    @ManyToOne(fetch=FetchType.LAZY, optional=false) @Getter @Setter
+    private Paralelo paralelo;
+    
+    @Getter @Setter
+    private Date fechaRegistro;
 
     @Getter @Setter
-    private Date fechaInicioVigencia;
+    private Boolean estadoRegistro;
 
-    @Getter @Setter
-    private Date fechaFinalVigencia;
 }
 

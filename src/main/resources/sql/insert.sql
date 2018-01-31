@@ -3,7 +3,9 @@ TRUNCATE TABLE alumno CASCADE;
 TRUNCATE TABLE calendarioespol CASCADE;
 TRUNCATE TABLE materia CASCADE;
 TRUNCATE TABLE nivelacademico CASCADE;
+TRUNCATE TABLE paralelo CASCADE;
 TRUNCATE TABLE profesor CASCADE;
+TRUNCATE TABLE registro CASCADE;
 
 INSERT INTO actividad (id,descripcion) VALUES 
     (1, 'Resumen de Paper'),
@@ -58,6 +60,11 @@ INSERT INTO profesor (id,apellido,nombre,nivelacademico_id) VALUES
     (9, 'Izquierdo Sánchez', 'Otela Julissa', 2),
     (10,'Nieto Wong', 'Gigio Felipe', 3);
 
-INSERT INTO calendarioespol (id,anio,fechafinalvigencia,fechainiciovigencia,semestre,actividad_id) VALUES 
-(1,2017, TIMESTAMP '2018-01-30 22:43:56.608', TIMESTAMP '2018-01-30 22:43:56.608',1,1);
+INSERT INTO calendarioespol (id,anio,semestre,fechainiciovigencia,fechafinalvigencia) VALUES 
+(1,2018, 1, TIMESTAMP '2018-01-30 00:00:00', TIMESTAMP '2018-07-30 00:00:00');
 
+INSERT INTO paralelo(id, calendarioespol_id, materia_id, profesor_id, descripcion, horainicio, duracionhoras) VALUES
+(1, 1, 6, 7, 'Paralelo 001', '07:00', 2); 
+
+INSERT INTO registro(id, alumno_id, paralelo_id, fechaRegistro, estadoRegistro) VALUES
+(1, 1, 1, TIMESTAMP '2018-01-30 00:00:00', true); 
