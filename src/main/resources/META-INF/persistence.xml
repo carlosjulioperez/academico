@@ -9,7 +9,10 @@
 		<!-- Annotated entity classes --> 
         <class>ec.cjpq.academico.model.entity.Actividad</class>
         <class>ec.cjpq.academico.model.entity.Alumno</class>
+        <class>ec.cjpq.academico.model.entity.CalendarioEspol</class>
         <class>ec.cjpq.academico.model.entity.Materia</class>
+        <class>ec.cjpq.academico.model.entity.NivelAcademico</class>
+        <class>ec.cjpq.academico.model.entity.Profesor</class>
 
 		<properties>
 			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/academicodb" />
